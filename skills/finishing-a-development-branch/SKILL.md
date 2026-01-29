@@ -88,13 +88,38 @@ Then: Cleanup worktree (Step 5)
 
 #### Option 2: Push and Create PR
 
+**Auto-link Linear Issue:**
+
+Before creating PR, extract ticket ID from branch name:
+
+```bash
+branch=$(git branch --show-current)
+ticket_id=$(echo "$branch" | grep -oE '^[A-Z]+-[0-9]+' || true)
+```
+
+If ticket ID found, prepend to PR body: `Fixes TICKET-ID`
+
+This triggers Linear to auto-close the issue when PR merges.
+
 ```bash
 # Push branch
 git push -u origin <feature-branch>
 
+# Extract ticket ID from branch name
+branch=$(git branch --show-current)
+ticket_id=$(echo "$branch" | grep -oE '^[A-Z]+-[0-9]+' || true)
+
+# Build PR body with optional Fixes line
+if [ -n "$ticket_id" ]; then
+  fixes_line="Fixes $ticket_id"
+else
+  fixes_line=""
+fi
+
 # Create PR
-gh pr create --title "<title>" --body "$(cat <<'EOF'
+gh pr create --title "<title>" --body "$(cat <<EOF
 ## Summary
+$fixes_line
 <2-3 bullets of what changed>
 
 ## Test Plan
