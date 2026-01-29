@@ -1,6 +1,6 @@
 ---
 name: daily-planning
-description: "Use when starting your workday or when you need to decide what to work on next. Queries Linear for pending tasks across all teams, ranks by priority/size/deadline, and recommends a focused task list."
+description: "Use when starting your workday, planning what to work on next, or deciding which Linear task to pick up"
 ---
 
 # Daily Planning
@@ -10,6 +10,13 @@ description: "Use when starting your workday or when you need to decide what to 
 Query Linear for pending tasks, rank them by a mixed strategy (priority + deadline + size), and recommend a focused daily task list.
 
 **Announce at start:** "I'm using the daily-planning skill to plan today's tasks."
+
+## When to Use
+
+- Starting your workday and need to prioritize tasks
+- Returning from a break and unsure what to work on
+- Finishing a task and deciding what comes next
+- Weekly planning to identify high-priority items
 
 ## Prerequisites
 
