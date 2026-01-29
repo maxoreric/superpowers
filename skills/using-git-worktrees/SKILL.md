@@ -74,6 +74,20 @@ No .gitignore verification needed - outside project entirely.
 
 ## Creation Steps
 
+### Branch Naming with Ticket ID
+
+If a previous skill (e.g., `picking-a-task`) provided a Ticket ID:
+
+**Branch name MUST follow format:** `TICKET-ID/description`
+
+Examples:
+- `PRJ-123/fix-login-timeout`
+- `API-42/add-user-avatar`
+
+This enables automatic Linear ↔ GitHub PR linking.
+
+**If no Ticket ID provided:** Use standard descriptive branch name.
+
 ### 1. Detect Project Name
 
 ```bash
